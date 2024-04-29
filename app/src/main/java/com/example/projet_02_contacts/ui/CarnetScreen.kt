@@ -6,19 +6,29 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Cancel
 import androidx.compose.material.icons.filled.CatchingPokemon
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material.icons.filled.Face
+import androidx.compose.material.icons.filled.Mode
+import androidx.compose.material.icons.filled.ReadMore
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SmallFloatingActionButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -43,10 +53,11 @@ fun CarnetScreen(modifier: Modifier = Modifier){
              .padding(paddingValues = innerPadding)
          ){
              UnContact("Gill", "Stephane", modifier)
-              UnContact("Lamoureux", "Isabelle", modifier)
-
-             }
+             UnContact("Lamoureux", "Isabelle", modifier)
+             Spacer(modifier = modifier.height(10.dp))
+             AddButton()
          }
+    }
 
 }
 
@@ -82,7 +93,7 @@ fun CarnetScreen(modifier: Modifier = Modifier){
      ) {
          Row {
 
-                IconContact()
+             IconContact()
 
 
              Text(
@@ -110,6 +121,53 @@ fun IconContact(modifier: Modifier = Modifier) {
         imageVector = Icons.Filled.Face,
         tint = MaterialTheme.colorScheme.secondary,
         contentDescription = "face",
-        modifier = Modifier.size(72.dp).padding(4.dp)
+        modifier = Modifier
+            .size(72.dp)
+            .padding(4.dp)
     )
+}
+
+@Composable
+fun AddButton() {
+    FloatingActionButton(
+        onClick = { },
+    ) {
+        Icon(Icons.Filled.Add, "Add")
+    }
+}
+
+@Composable
+fun DeleteButton() {
+    FloatingActionButton(
+        onClick = { },
+    ) {
+        Icon(Icons.Filled.Delete, "Pencil")
+    }
+}
+
+@Composable
+fun ModifyButton() {
+    FloatingActionButton(
+        onClick = { },
+    ) {
+        Icon(Icons.Filled.Mode, "Modify")
+    }
+}
+
+@Composable
+fun ApproveButton() {
+    FloatingActionButton(
+        onClick = { },
+    ) {
+        Icon(Icons.Filled.Check, "Approve")
+    }
+}
+
+@Composable
+fun CancelButton() {
+    FloatingActionButton(
+        onClick = { },
+    ) {
+        Icon(Icons.Filled.Close, "Cancel")
+    }
 }
